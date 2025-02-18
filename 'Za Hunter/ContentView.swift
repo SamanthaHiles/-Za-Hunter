@@ -18,8 +18,10 @@ struct ContentView: View {
             Map(position: $startPosition) {
                 UserAnnotation()
                 ForEach(places) { place in
-                    Annotation(place.mapItem.name!, coordinate: place.mapItem.placemark.coordinate){
-                        Image("pizza")
+                    Annotation(place.mapItem.name!, coordinate: place.mapItem.placemark.coordinate) {
+                        NavigationLink(destination: LocationDetailsView(mapItem: place.mapItem)) {
+                            Image("pizza")
+                        }
                     }
                 }
             }
